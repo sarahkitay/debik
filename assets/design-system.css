@@ -1816,12 +1816,19 @@ body::before {
   .resonance-grid--arc {
     grid-template-columns: 1fr;
   }
-  /* Puzzle: room for circle, centered in viewport, slightly smaller */
+  /* Puzzle: room for circle, centered; "resonate" content stacks below, full width */
   .resonance-section__container {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .resonance-section__container .resonance-eyebrow,
+  .resonance-section__container .resonance-blocks-below,
+  .resonance-section__container .resonance-next-step--below {
+    align-self: stretch;
+    width: 100%;
   }
   .resonance-grid--arc {
     min-width: 420px;
