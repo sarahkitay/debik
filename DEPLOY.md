@@ -26,6 +26,8 @@ Replace `YOUR_USERNAME` and `YOUR_REPO_NAME` with your GitHub username and repo 
 
 After the first deploy, Vercel will give you a URL like `your-project.vercel.app`. Every push to `main` will trigger a new deployment.
 
+**If you get 404s:** The repo has both static HTML and Next.js. In Vercel go to **Settings** → **General** → set **Framework Preset** to **Other**. Under **Build & Development Settings**, set **Output Directory** to `.` and clear **Build Command**. Then **Redeploy** the latest deployment.
+
 ## 3. Custom domain (optional)
 
 In the Vercel project: **Settings** → **Domains** → add your domain (e.g. `debikitaytherapy.com`) and follow the DNS instructions.
