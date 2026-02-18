@@ -610,11 +610,17 @@ body::before {
   .primary-nav .menu-trigger-bars > span,
   .site-header .menu-trigger-bars > span {
     width: 22px;
-    height: 2px;
-    background: var(--ds-charcoal);
+    height: 1.5px;
+    background: rgba(44, 40, 35, 0.4);
     border-radius: 1px;
     transition: all 300ms ease;
     display: block;
+  }
+  .primary-nav .nav-search-btn,
+  .primary-nav .btn-search[data-site-search-open],
+  .site-header .nav-search-btn,
+  .site-header .btn-search[data-site-search-open] {
+    display: none !important;
   }
   .primary-nav .nav-menu-wrap {
     position: relative;

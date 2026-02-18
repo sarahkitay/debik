@@ -225,6 +225,20 @@ function initSiteSearch() {
     }
   };
 
+  const ensureFooterSearchButton = () => {
+    if (document.querySelector(".footer-search-trigger[data-site-search-open]")) return;
+    const footerLinks = document.querySelector(".site-footer .footer-links");
+    if (!footerLinks) return;
+    const link = document.createElement("a");
+    link.href = "#";
+    link.className = "footer-search-trigger";
+    link.setAttribute("data-site-search-open", "true");
+    link.setAttribute("aria-label", "Search this page");
+    link.textContent = "Search";
+    link.addEventListener("click", (e) => { e.preventDefault(); });
+    footerLinks.insertBefore(link, footerLinks.firstChild);
+  };
+
   const ensureModal = () => {
     if (document.querySelector("[data-site-search-modal]")) return;
     const modal = document.createElement("div");
@@ -323,10 +337,11 @@ function initSiteSearch() {
   };
 
   ensureOpenButton();
+  ensureFooterSearchButton();
   ensureModal();
 
   const modal = document.querySelector("[data-site-search-modal]");
-  const openBtn = document.querySelector("[data-site-search-open]");
+  const openBtns = document.querySelectorAll("[data-site-search-open]");
   const closeEls = Array.from(document.querySelectorAll("[data-site-search-close]"));
   const form = document.querySelector("[data-site-search-form]");
   const input = modal.querySelector("input[type='search']");
@@ -450,7 +465,7 @@ function initSiteSearch() {
     status.textContent = "";
   };
 
-  openBtn.addEventListener("click", open);
+  openBtns.forEach((btn) => btn.addEventListener("click", open));
   closeEls.forEach((el) => el.addEventListener("click", close));
 
   document.addEventListener("keydown", (e) => {
@@ -1805,7 +1820,7 @@ function initPullQuoteReveal() {
     }
     const rect = section.getBoundingClientRect();
     const vh = window.innerHeight;
-    const startOffset = -vh * 0.6;
+    const startOffset = -vh * 0.3;
     const progress = Math.max(0, Math.min(1, (vh - rect.top + startOffset) / revealRange));
     section.style.setProperty('--quote-fill', (progress * 100) + '%');
     requestAnimationFrame(update);
