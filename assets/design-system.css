@@ -1816,23 +1816,30 @@ body::before {
   .resonance-grid--arc {
     grid-template-columns: 1fr;
   }
-  /* Puzzle: room for circle, centered; "resonate" content stacks below, full width */
+  /* Puzzle fits in viewport, no horizontal scroll; cards and text below */
   .resonance-section__container {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: block;
+  }
+  .resonance-puzzle-wrap {
+    overflow: visible;
+    margin-bottom: 0;
+    width: 100%;
+  }
+  .resonance-puzzle-wrap .resonance-grid--arc {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  /* Don’t clip the full circle on the right */
+  .resonance-puzzle-wrap .resonance-grid--physics {
+    overflow: visible;
   }
   .resonance-section__container .resonance-eyebrow,
   .resonance-section__container .resonance-blocks-below,
   .resonance-section__container .resonance-next-step--below {
-    align-self: stretch;
     width: 100%;
-  }
-  .resonance-grid--arc {
-    min-width: 420px;
-    max-width: none;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
 
