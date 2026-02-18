@@ -27,9 +27,9 @@
   --bronze-700:#8B7460;
   --bronze-100:#E5DDD5;
 
-  --color-bg:#FDFCFB;           /* warm eggshell - not white */
-  --color-bg-cream:#FDFCFB;
-  --color-bg-alt:#F9F7F4;       /* cream */
+  --color-bg:#F4F6F3;           /* light sage base (aligned with common questions) */
+  --color-bg-cream:#F4F6F3;
+  --color-bg-alt:#EEF1EA;       /* slightly deeper sage */
   --color-surface:#ffffff;
   --color-surface-legal:#ffffff;
 
@@ -39,9 +39,9 @@
   --color-text-light:#8A8680;   /* lighter charcoal */
   --color-border:#E8E5DF;       /* warm, subtle border */
 
-  /* Section tints - very subtle */
-  --color-bg-blue-soft:#FDFCF9; /* warm alternate */
-  --color-bg-sage:#F8F6F2;      /* very subtle sage tint */
+  /* Section tints - sage family */
+  --color-bg-blue-soft:#F2F5F0; /* sage alternate */
+  --color-bg-sage:#EEF1EA;      /* sage tint */
   --color-primary-strong:#F6F4F0; /* decision section background */
   --color-warm-peach:#ffeaa7;   /* warm glow accent (kept for compatibility) */
   --color-warm-sage:#e8efe6;    /* soft sage (kept for compatibility) */
@@ -4315,7 +4315,7 @@ body.page-long .cta-center{
 }
 /* Only used when sage block is present (e.g. not on home); same lighter green as other page heroes */
 .common-questions-section--sage .plate{
-  background:linear-gradient(180deg, #6e826f 0%, #647766 180px, #faf8f6 180px);
+  background:linear-gradient(180deg, #6e826f 0%, #647766 180px, #F4F6F3 180px);
   padding-top:48px;
 }
 .common-questions-section--sage .section-label,
