@@ -1816,14 +1816,18 @@ body::before {
   .resonance-grid--arc {
     grid-template-columns: 1fr;
   }
-  /* Puzzle: circle is ~490px; give grid room so it isn't clipped by max-width/overflow */
-  .resonance-section__container {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  .resonance-grid--arc {
-    min-width: 500px;
+  /* Puzzle: grid uses full width; JS scales circle to fit and centers it */
+  .resonance-grid--arc,
+  .resonance-grid--puzzle {
     max-width: none;
+  }
+  .resonance-section__container {
+    display: flex;
+    justify-content: center;
+  }
+  .resonance-section__container .resonance-grid {
+    flex: 0 1 auto;
+    width: 100%;
   }
 }
 

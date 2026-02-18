@@ -1395,25 +1395,49 @@ function initFloatingCards() {
         { w: 244.39, h: 134.74 }    // 2: third SVG = top arc of circle
       ];
       const ROW_HEIGHT = 255;
-      const scale = ROW_HEIGHT / Math.max(...VIEWBOXES.map(v => v.h));
-      const naturalSizes = VIEWBOXES.map(v => ({
+      const overlapVertical = 88;
+      const KNOB_FRACTION = 0.88;
+      const MARGIN = 32;
+
+      let scale = ROW_HEIGHT / Math.max(...VIEWBOXES.map(v => v.h));
+      let naturalSizes = VIEWBOXES.map(v => ({
         width: Math.round(v.w * scale),
         height: Math.round(v.h * scale)
       }));
 
-      const KNOB_FRACTION = 0.88;
-      const w0 = naturalSizes[0].width;
-      const h0 = naturalSizes[0].height;
-      const w1 = naturalSizes[1].width;
-      const h1 = naturalSizes[1].height;
-      const w2 = naturalSizes[2].width;
-      const h2 = naturalSizes[2].height;
+      let w0 = naturalSizes[0].width;
+      let h0 = naturalSizes[0].height;
+      let w1 = naturalSizes[1].width;
+      let h1 = naturalSizes[1].height;
+      let w2 = naturalSizes[2].width;
+      let h2 = naturalSizes[2].height;
 
-      const overlapBottom = KNOB_FRACTION * Math.min(w0, w1);
-      const bottomRowWidth = w1 + w0 - overlapBottom;
-      const overlapVertical = 88;
-      const assembledHeight = h2 + Math.max(h0, h1) - overlapVertical;
-      const assembledW = Math.max(bottomRowWidth, w2);
+      let overlapBottom = KNOB_FRACTION * Math.min(w0, w1);
+      let bottomRowWidth = w1 + w0 - overlapBottom;
+      let assembledHeight = h2 + Math.max(h0, h1) - overlapVertical;
+      let assembledW = Math.max(bottomRowWidth, w2);
+
+      // On narrow viewports (e.g. mobile), scale down so puzzle fits and stays centered
+      let scaleDown = 1;
+      if (assembledW > W - MARGIN) scaleDown = Math.min(scaleDown, (W - MARGIN) / assembledW);
+      if (assembledHeight > H - 80) scaleDown = Math.min(scaleDown, (H - 80) / assembledHeight);
+      if (scaleDown < 1) {
+        scale *= scaleDown;
+        naturalSizes = VIEWBOXES.map(v => ({
+          width: Math.round(v.w * scale),
+          height: Math.round(v.h * scale)
+        }));
+        w0 = naturalSizes[0].width;
+        h0 = naturalSizes[0].height;
+        w1 = naturalSizes[1].width;
+        h1 = naturalSizes[1].height;
+        w2 = naturalSizes[2].width;
+        h2 = naturalSizes[2].height;
+        overlapBottom = KNOB_FRACTION * Math.min(w0, w1);
+        bottomRowWidth = w1 + w0 - overlapBottom;
+        assembledHeight = h2 + Math.max(h0, h1) - overlapVertical;
+        assembledW = Math.max(bottomRowWidth, w2);
+      }
 
       const offsetX = Math.max(0, (W - assembledW) / 2);
       const containerH = Math.max(assembledHeight * 1.5, 480);
