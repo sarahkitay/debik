@@ -909,6 +909,20 @@ h1,h2,h3,.brand strong{
 @media (prefers-reduced-motion: reduce){
   .nav-dropdown.is-open{ animation:none }
 }
+/* Mobile: compact nav, hamburger only, no underline on menu button */
+@media (max-width: 768px){
+  .site-header .nav{
+    padding:10px 0;
+    gap:10px;
+  }
+  .site-header .menu-trigger::after{
+    display:none;
+  }
+  .site-header .nav-cta .btn{
+    padding:8px 14px;
+    font-size:0.8rem;
+  }
+}
 @media (min-width: 769px){
   .site-header .nav{
     padding:12px 0;

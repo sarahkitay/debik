@@ -1805,7 +1805,7 @@ function initPullQuoteReveal() {
     }
     const rect = section.getBoundingClientRect();
     const vh = window.innerHeight;
-    const startOffset = -vh * 0.3;
+    const startOffset = -vh * 0.6;
     const progress = Math.max(0, Math.min(1, (vh - rect.top + startOffset) / revealRange));
     section.style.setProperty('--quote-fill', (progress * 100) + '%');
     requestAnimationFrame(update);
