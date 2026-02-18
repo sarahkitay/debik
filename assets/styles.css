@@ -88,6 +88,8 @@
   --radius-md:var(--r2);
   --radius-lg:var(--r);
 
+  /* Uniform page hero h1 size (all pages) */
+  --page-hero-h1-size: clamp(2rem, 4vw, 2.5rem);
   /* Lighter green for page heroes (about, approach, menopause, common questions, contact) — not home */
   --hero-sage-gradient:linear-gradient(180deg, #6e826f 0%, #647766 50%, #5e7060 100%);
 
@@ -2758,7 +2760,7 @@ a.btn[data-consultation-link]:focus-visible{
 }
 .page-hero h1{
   margin:0 0 14px;
-  font-size: clamp(2.1rem, 4vw, 2.5rem);
+  font-size: var(--page-hero-h1-size);
   line-height:1.08;
 }
 .page-hero .hero__intro,
@@ -3190,7 +3192,7 @@ body.page-long .cta-center{
   font-weight:500;
 }
 .about-hero-full__content h1{
-  font-size:clamp(0.85rem, 4.5vw, 2.75rem);
+  font-size: var(--page-hero-h1-size);
   line-height:1.2;
   margin:0 0 28px;
   font-weight:400;
@@ -3528,7 +3530,7 @@ body.page-long .cta-center{
   font-weight:400;
 }
 .approach-hero-flow h1{
-  font-size:clamp(2rem, 4vw, 2.5rem);
+  font-size: var(--page-hero-h1-size);
   line-height:1.2;
   margin:0 0 28px;
   font-weight:400;
@@ -4841,6 +4843,7 @@ body.contact-page .contact-hero--sage .contact-hero__subtext{
   color:rgba(255,255,255,0.85);
 }
 .contact-hero__title-fade{
+  font-size: var(--page-hero-h1-size);
   opacity:0;
   transform:translateY(16px);
   animation:contactTitleFade 0.9s cubic-bezier(0.22,0.61,0.36,1) forwards;

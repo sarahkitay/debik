@@ -118,26 +118,40 @@ function setPortalLinks() {
 }
 
 /**
- * Initializes schedule consultation modal on contact page
- * Shows choice: Open portal to book online (if configured) or Email to schedule
+ * Schedule consultation: go straight to portal when configured; otherwise show email dialog
  */
 function initScheduleConsultation() {
-  if (!document.body.classList.contains("contact-page")) return;
-
-  const dialog = document.getElementById("schedule-dialog");
-  const portalBtn = document.getElementById("schedule-portal-btn");
-  const emailBtn = document.getElementById("schedule-email-btn");
-  const closeBtn = document.querySelector("[data-close-schedule-dialog]");
-  const triggers = document.querySelectorAll("[data-schedule-consultation]");
-
-  if (!dialog || !emailBtn || !triggers.length) return;
-
   const portalUrl =
     (window.SITE_CONFIG && window.SITE_CONFIG.simplePracticeContactUrl) ||
     (window.SITE_CONFIG && window.SITE_CONFIG.simplePracticeConsultationUrl) ||
     (window.SITE_CONFIG && window.SITE_CONFIG.simplePracticeSchedulingUrl) ||
     "";
   const hasPortal = portalUrl && !portalUrl.includes("example.com");
+
+  const triggers = document.querySelectorAll("[data-schedule-consultation]");
+  triggers.forEach((t) => {
+    t.addEventListener("click", (e) => {
+      if (hasPortal) {
+        e.preventDefault();
+        window.open(portalUrl, "_blank", "noopener,noreferrer");
+        return;
+      }
+      if (!document.body.classList.contains("contact-page")) return;
+      const dialog = document.getElementById("schedule-dialog");
+      if (dialog) {
+        e.preventDefault();
+        dialog.showModal();
+        triggers.forEach((el) => el.setAttribute("aria-expanded", "true"));
+      }
+    });
+  });
+
+  if (!document.body.classList.contains("contact-page")) return;
+
+  const dialog = document.getElementById("schedule-dialog");
+  const portalBtn = document.getElementById("schedule-portal-btn");
+  const emailBtn = document.getElementById("schedule-email-btn");
+  const closeBtn = document.querySelector("[data-close-schedule-dialog]");
 
   if (hasPortal && portalBtn) {
     portalBtn.href = portalUrl;
@@ -146,28 +160,26 @@ function initScheduleConsultation() {
     portalBtn.style.display = "none";
   }
 
-  const emailSubject = encodeURIComponent("Consultation request");
-  const emailBody = encodeURIComponent(
-    "Hi Debi,\n\nI'm interested in scheduling a consultation. Please let me know what times work for you.\n\nBest regards"
-  );
-  emailBtn.href = `mailto:debi@debikitaytherapy.com?subject=${emailSubject}&body=${emailBody}`;
-
-  const open = () => {
-    dialog.showModal();
-    triggers.forEach((t) => t.setAttribute("aria-expanded", "true"));
-  };
+  if (emailBtn) {
+    const emailSubject = encodeURIComponent("Consultation request");
+    const emailBody = encodeURIComponent(
+      "Hi Debi,\n\nI'm interested in scheduling a consultation. Please let me know what times work for you.\n\nBest regards"
+    );
+    emailBtn.href = `mailto:debi@debikitaytherapy.com?subject=${emailSubject}&body=${emailBody}`;
+  }
 
   const close = () => {
-    dialog.close();
+    if (dialog) dialog.close();
     triggers.forEach((t) => t.setAttribute("aria-expanded", "false"));
   };
 
-  triggers.forEach((t) => t.addEventListener("click", open));
   if (closeBtn) closeBtn.addEventListener("click", close);
-  dialog.addEventListener("cancel", close);
-  dialog.addEventListener("click", (e) => {
-    if (e.target === dialog) close();
-  });
+  if (dialog) {
+    dialog.addEventListener("cancel", close);
+    dialog.addEventListener("click", (e) => {
+      if (e.target === dialog) close();
+    });
+  }
 }
 
 /**
