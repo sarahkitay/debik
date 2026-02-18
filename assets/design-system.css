@@ -890,7 +890,9 @@ body::before {
 
 @media (max-width: 768px) {
   .hero-fullbleed {
-    padding: clamp(60px, 10vh, 100px) 20px;
+    min-height: 75vh;
+    height: 75vh;
+    padding: clamp(50px, 8vh, 80px) 20px;
   }
   .hero-offer-section {
     padding: 32px 16px 48px;
@@ -2820,6 +2822,19 @@ body.final-cta-inview .approach-flow-section.final-cta .btn-primary:hover {
   .pull-quote-section,
   .section.final-cta {
     padding: 80px 16px;
+  }
+  /* How I Work: wider text box on mobile */
+  .how-i-work-sanctuary {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .how-i-work-sanctuary .wrap {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .how-i-work-sanctuary .plate {
+    padding-left: 14px;
+    padding-right: 14px;
   }
   .pull-quote-section {
     padding-top: clamp(100px, 14vh, 160px);
