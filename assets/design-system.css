@@ -271,7 +271,7 @@ body::before {
   }
   /* Push hero below fixed nav + mini menu on mobile */
   .hero-band {
-    padding-top: 130px;
+    padding-top: 100px;
   }
 }
 
@@ -893,10 +893,10 @@ body::before {
     padding: clamp(60px, 10vh, 100px) 20px;
   }
   .hero-offer-section {
-    padding: 32px 20px 48px;
+    padding: 32px 16px 48px;
   }
   .hero-offer-block {
-    padding: 24px 24px 32px;
+    padding: 24px 20px 32px;
   }
 }
 
@@ -2819,7 +2819,7 @@ body.final-cta-inview .approach-flow-section.final-cta .btn-primary:hover {
   .how-i-work-sanctuary,
   .pull-quote-section,
   .section.final-cta {
-    padding: 80px 24px;
+    padding: 80px 16px;
   }
   .pull-quote-section {
     padding-top: clamp(100px, 14vh, 160px);
