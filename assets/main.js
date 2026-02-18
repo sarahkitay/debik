@@ -41,7 +41,7 @@ function setConsultationLinks() {
       a.setAttribute("href", onContact ? "#scheduling" : "contact.html#scheduling");
       a.setAttribute(
         "aria-label",
-        "Begin with a free 15-minute conversation (opens contact page until SimplePractice link is configured)"
+        "Begin with a complimentary 15-minute consultation (opens contact page until SimplePractice link is configured)"
       );
       return;
     }

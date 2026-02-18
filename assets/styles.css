@@ -348,11 +348,13 @@ body::after{
     display:block;
   }
   .sticky-cta{
-    bottom:1rem;
-    right:1rem;
-    left:1rem;
+    bottom:0;
+    left:0;
+    right:0;
+    border-radius:0;
     text-align:center;
     padding:.875rem 1rem;
+    padding-bottom:max(.875rem, env(safe-area-inset-bottom));
   }
 }
 
