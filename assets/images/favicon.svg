@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Deborah Kitay, LMFT">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#74b9ff" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#55efc4" stop-opacity=".95"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="url(#g)"/>
+  <path d="M60 26c8 10 12 20 12 29 0 10-6 18-12 21-6-3-12-11-12-21 0-9 4-19 12-29Z" fill="#fff" fill-opacity=".92"/>
+  <path d="M36 50c10 3 18 8 23 14 7 8 7 18 2 25-7-1-16-6-22-14-5-6-7-15-3-25Z" fill="#fff" fill-opacity=".82"/>
+  <path d="M84 50c4 10 2 19-3 25-6 8-15 13-22 14-5-7-5-17 2-25 5-6 13-11 23-14Z" fill="#fff" fill-opacity=".82"/>
+</svg>
+

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Ocean sunset">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#a29bfe" stop-opacity=".30"/>
+      <stop offset=".5" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#f0f9f9" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#74b9ff" stop-opacity=".20"/>
+      <stop offset="1" stop-color="#55efc4" stop-opacity=".18"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="760" fill="url(#sky)"/>
+  <circle cx="860" cy="200" r="90" fill="#ffd6e7" opacity=".75"/>
+  <rect y="390" width="1200" height="370" fill="url(#sea)"/>
+
+  <path d="M0 430 C 220 400, 360 470, 600 430 C 840 390, 980 480, 1200 430" fill="none" stroke="#74b9ff" stroke-opacity=".26" stroke-width="8"/>
+  <path d="M0 500 C 220 470, 360 540, 600 500 C 840 460, 980 550, 1200 500" fill="none" stroke="#55efc4" stroke-opacity=".24" stroke-width="8"/>
+  <path d="M0 570 C 220 540, 360 610, 600 570 C 840 530, 980 620, 1200 570" fill="none" stroke="#a29bfe" stroke-opacity=".18" stroke-width="8"/>
+
+  <path d="M90 405 C 200 360, 320 360, 440 405 C 340 430, 210 430, 90 405Z" fill="#2d3436" opacity=".06"/>
+  <path d="M980 405 C 1060 370, 1140 370, 1200 405 L 1200 470 C 1120 440, 1040 440, 980 470 Z" fill="#2d3436" opacity=".05"/>
+</svg>
+

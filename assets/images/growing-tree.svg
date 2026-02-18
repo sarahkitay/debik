@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="growing-tree" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 800" preserveAspectRatio="xMidYMin meet">
+  <defs>
+    <style>
+      .tree-path {
+        fill: none;
+        stroke: #7FA694;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        transition: stroke-dashoffset 0.3s ease-out;
+      }
+    </style>
+  </defs>
+  
+  <!-- Root system - grows first -->
+  <path class="tree-path" data-tree-part="root1" d="M100,750 Q90,720 85,690 Q80,660 85,630" opacity="0.6"/>
+  <path class="tree-path" data-tree-part="root2" d="M100,750 Q110,720 115,690 Q120,660 115,630" opacity="0.6"/>
+  
+  <!-- Main trunk - grows from bottom up -->
+  <path class="tree-path" data-tree-part="trunk" d="M100,750 Q100,700 100,650 Q100,600 100,550 Q100,500 100,450 Q100,400 100,350 Q100,300 100,250 Q100,200 100,150"/>
+  
+  <!-- Lower branches - left side -->
+  <path class="tree-path" data-tree-part="branch1" d="M100,550 Q80,530 70,510 Q60,490 55,470" opacity="0.7"/>
+  <path class="tree-path" data-tree-part="branch2" d="M100,550 Q120,530 130,510 Q140,490 145,470" opacity="0.7"/>
+  
+  <!-- Mid branches - left side -->
+  <path class="tree-path" data-tree-part="branch3" d="M100,450 Q75,430 60,410 Q50,390 45,370" opacity="0.75"/>
+  <path class="tree-path" data-tree-part="branch4" d="M100,450 Q125,430 140,410 Q150,390 155,370" opacity="0.75"/>
+  
+  <!-- Upper branches - left side -->
+  <path class="tree-path" data-tree-part="branch5" d="M100,350 Q70,330 50,310 Q35,290 30,270" opacity="0.8"/>
+  <path class="tree-path" data-tree-part="branch6" d="M100,350 Q130,330 150,310 Q165,290 170,270" opacity="0.8"/>
+  
+  <!-- Top branches - left side -->
+  <path class="tree-path" data-tree-part="branch7" d="M100,250 Q65,230 40,210 Q25,190 20,170" opacity="0.85"/>
+  <path class="tree-path" data-tree-part="branch8" d="M100,250 Q135,230 160,210 Q175,190 180,170" opacity="0.85"/>
+  
+  <!-- Delicate offshoots - add organic detail -->
+  <path class="tree-path" data-tree-part="offshoot1" d="M70,510 Q65,500 60,490" opacity="0.5" stroke-width="1"/>
+  <path class="tree-path" data-tree-part="offshoot2" d="M130,510 Q135,500 140,490" opacity="0.5" stroke-width="1"/>
+  <path class="tree-path" data-tree-part="offshoot3" d="M60,410 Q55,400 50,390" opacity="0.5" stroke-width="1"/>
+  <path class="tree-path" data-tree-part="offshoot4" d="M140,410 Q145,400 150,390" opacity="0.5" stroke-width="1"/>
+  <path class="tree-path" data-tree-part="offshoot5" d="M50,310 Q45,300 40,290" opacity="0.5" stroke-width="1"/>
+  <path class="tree-path" data-tree-part="offshoot6" d="M150,310 Q155,300 160,290" opacity="0.5" stroke-width="1"/>
+  
+  <!-- Topmost delicate branches -->
+  <path class="tree-path" data-tree-part="top1" d="M100,150 Q95,140 90,130 Q85,120 80,110" opacity="0.9" stroke-width="1.2"/>
+  <path class="tree-path" data-tree-part="top2" d="M100,150 Q105,140 110,130 Q115,120 120,110" opacity="0.9" stroke-width="1.2"/>
+</svg>

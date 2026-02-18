@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Soft lotus illustration">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f0f9f9"/>
+      <stop offset=".55" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f0f9f9"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="70%" cy="20%" r="60%">
+      <stop offset="0" stop-color="#a29bfe" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#a29bfe" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="water" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#74b9ff" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#55efc4" stop-opacity=".16"/>
+    </linearGradient>
+    <linearGradient id="petal" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffd6e7" stop-opacity=".92"/>
+      <stop offset=".55" stop-color="#ffb3d1" stop-opacity=".86"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".78"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <circle cx="900" cy="150" r="360" fill="url(#sun)"/>
+
+  <path d="M0 500 C 220 430, 380 540, 600 500 C 820 460, 980 560, 1200 500 L 1200 760 L 0 760 Z" fill="url(#water)"/>
+  <path d="M0 560 C 220 510, 380 600, 600 560 C 820 520, 980 620, 1200 560" fill="none" stroke="#74b9ff" stroke-opacity=".22" stroke-width="6"/>
+  <path d="M0 620 C 220 590, 380 660, 600 620 C 820 580, 980 680, 1200 620" fill="none" stroke="#55efc4" stroke-opacity=".22" stroke-width="6"/>
+
+  <!-- Lotus -->
+  <g transform="translate(600 430)">
+    <ellipse cx="0" cy="120" rx="220" ry="46" fill="#2d3436" opacity=".06"/>
+    <path d="M0 -190 C 55 -130, 80 -55, 80 0 C 80 72, 40 125, 0 150 C -40 125, -80 72, -80 0 C -80 -55, -55 -130, 0 -190 Z" fill="url(#petal)" opacity=".96"/>
+    <path d="M-155 -120 C -95 -95, -55 -55, -40 0 C -24 58, -55 110, -110 145 C -160 112, -195 55, -200 0 C -206 -62, -196 -98, -155 -120 Z" fill="url(#petal)" opacity=".9"/>
+    <path d="M155 -120 C 196 -98, 206 -62, 200 0 C 195 55, 160 112, 110 145 C 55 110, 24 58, 40 0 C 55 -55, 95 -95, 155 -120 Z" fill="url(#petal)" opacity=".9"/>
+    <path d="M-250 -25 C -165 -25, -110 25, -95 75 C -77 134, -130 180, -200 200 C -280 170, -320 120, -318 70 C -316 20, -295 -10, -250 -25 Z" fill="url(#petal)" opacity=".78"/>
+    <path d="M250 -25 C 295 -10, 316 20, 318 70 C 320 120, 280 170, 200 200 C 130 180, 77 134, 95 75 C 110 25, 165 -25, 250 -25 Z" fill="url(#petal)" opacity=".78"/>
+    <circle cx="0" cy="36" r="16" fill="#55efc4" opacity=".55"/>
+  </g>
+</svg>
+

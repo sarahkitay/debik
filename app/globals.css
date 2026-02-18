@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Design system tokens */
+    --color-paper: #f5f1e8;
+    --color-charcoal: #524f4a;
+    --color-library: #7a8b7f;
+    --color-terracotta: #d4a896;
+    --color-oxblood: #a65e4d;
+    --color-ivory: #fffdf7;
+    --font-display: "Cormorant Garamond", Georgia, serif;
+    --font-body: "Inter", system-ui, sans-serif;
+    --font-label: "EB Garamond", Georgia, serif;
+    --max-content: 1280px;
+    --gutter: 32px;
+    --section-gap: 120px;
+    --section-gap-mobile: 80px;
+    --radius-card: 4px;
+    --focus-ring: 2px solid var(--color-library);
+    --focus-offset: 4px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-paper: #1e1c19;
+      --color-charcoal: #e8e4df;
+      --color-library: #8fa392;
+      --color-terracotta: #c49584;
+      --color-oxblood: #c97a6a;
+      --color-ivory: #252320;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-size: clamp(16px, 1.125vw, 18px);
+    line-height: 1.75;
+    color: var(--color-charcoal);
+    background-color: var(--color-paper);
+  }
+
+  /* WCAG AAA focus */
+  :focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-offset);
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 24px;
+    z-index: 100;
+    padding: 12px 20px;
+    background: var(--color-library);
+    color: var(--color-ivory);
+    font-weight: 500;
+    border-radius: var(--radius-card);
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus {
+    top: 24px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Blur-up image placeholder */
+.blur-up {
+  filter: blur(20px);
+  transition: filter 0.8s ease-out;
+}
+.blur-up.loaded {
+  filter: blur(0);
+}
