@@ -44,10 +44,10 @@ body::before {
 
 :root {
   /* Primary */
-  --ds-paper: #F2F5F0;
+  --ds-paper: #EBEFE6;
   --ds-charcoal: #524F4A;
   --ds-library: #7A8B7F;
-  --ds-ivory: #F8FAF6;
+  --ds-ivory: #F2F6EF;
   /* Accents */
   --ds-terracotta: #D4A896;
   --ds-oxblood: #A65E4D;
@@ -74,17 +74,17 @@ body::before {
   --section-padding: clamp(112px, 11vw, 160px);
   --card-spacing: clamp(24px, 3vw, 32px);
   --text-max: 64ch;
-  /* Depth: subtle section backgrounds (sage family, aligned with common questions) */
-  --ds-section-a: #F6F8F5;
-  --ds-section-b: #F0F3EE;
-  --ds-section-c: #EBEFE8;
-  --ds-pause-band: rgba(240, 243, 238, 0.6);
+  /* Depth: subtle section backgrounds (slightly darker sage) */
+  --ds-section-a: #EEF1E9;
+  --ds-section-b: #E8ECE4;
+  --ds-section-c: #E3E7DF;
+  --ds-pause-band: rgba(232, 236, 228, 0.6);
   /* Space between sections: 0 so spacing is padding-only (section bg fills, no white strips) */
   --section-gap: 0;
   /* Display font — variable, book-printed quality (optional) */
   --font-display: "Fraunces", var(--font-heading, "Cormorant Garamond"), Georgia, serif;
   /* Texture: paper over sage base */
-  --texture-base: #F0F3EE;
+  --texture-base: #E8ECE4;
   --texture-opacity: 0.1;
 }
 
