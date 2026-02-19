@@ -27,9 +27,9 @@
   --bronze-700:#8B7460;
   --bronze-100:#E5DDD5;
 
-  --color-bg:#EBEFE6;           /* slightly darker sage base */
-  --color-bg-cream:#EBEFE6;
-  --color-bg-alt:#E4E9E0;       /* deeper sage */
+  --color-bg:#E2E8E0;           /* darker sage to match footer fill */
+  --color-bg-cream:#E8EDE5;
+  --color-bg-alt:#E0E6DE;       /* deeper sage */
   --color-surface:#ffffff;
   --color-surface-legal:#ffffff;
 
@@ -4286,6 +4286,12 @@ body.page-long .cta-center{
   padding:18px 0;
   font-weight:500;
 }
+.faq-accordion--vintage summary h2{
+  margin:0;
+  font-size:1em;
+  font-weight:500;
+  display:inline;
+}
 .faq-accordion--vintage summary::after{
   width:auto;
   height:auto;
@@ -4806,6 +4812,25 @@ main ul li::before{
   text-align:center;
   color:var(--color-text-muted);
   font-size:var(--text-sm);
+}
+
+/* Common Questions page only: reduced padding */
+.faq-page .section.faq{
+  padding-top:clamp(40px, 6vw, 56px);
+  padding-bottom:clamp(40px, 6vw, 56px);
+}
+.faq-page .faq__container{
+  gap:12px;
+}
+.faq-page .faq-accordion--vintage summary{
+  padding:14px 0;
+}
+.faq-page .faq-accordion--vintage .answer{
+  padding:0 0 14px;
+}
+.faq-page .faq-cta-sage{
+  margin-top:24px;
+  padding:20px 24px;
 }
 
 .contact__grid{

@@ -590,6 +590,7 @@ function initScrollReveals() {
     ".contact .section",
     // FAQ page
     ".section.faq",
+    ".faq__list details",
     ".faq__item",
     // Privacy / legal
     ".legal .section",
