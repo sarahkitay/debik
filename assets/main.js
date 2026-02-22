@@ -1587,7 +1587,6 @@ function initFloatingCards() {
 
       const SNAP_DISTANCE = 80;
       const NEAR_DISTANCE = 120;
-      const MAGNETIC_STRENGTH = 0.18;
       const MAGNETIC_RADIUS = 130;
       const CLOSE_ENOUGH = 100;
       const CLUSTER_RADIUS = 95;
@@ -1661,6 +1660,8 @@ function initFloatingCards() {
 
       let dragging = null;
 
+      const MAGNETIC_ANIM_MS = 380;
+
       function clearDrag() {
         if (!dragging) return;
         const c = dragging.card;
@@ -1675,6 +1676,16 @@ function initFloatingCards() {
           c.locked = true;
           renderCard(c);
           checkSolved();
+        } else if (dist <= MAGNETIC_RADIUS) {
+          // Magnetic pull on release: smooth animate to target, then lock
+          c.x = c.targetX;
+          c.y = c.targetY;
+          renderCard(c);
+          setTimeout(() => {
+            c.locked = true;
+            renderCard(c);
+            checkSolved();
+          }, MAGNETIC_ANIM_MS);
         } else if (allWithinClose() || allTogetherAnywhere()) {
           cards.forEach((card) => {
             card.x = card.targetX;
@@ -1713,12 +1724,7 @@ function initFloatingCards() {
         let ny = e.clientY - r.top - dragging.offsetY;
         nx = Math.max(-10, Math.min(W - c.width + 10, nx));
         ny = Math.max(-10, Math.min(containerH - c.height + 10, ny));
-        const distToTarget = Math.hypot(c.targetX - nx, c.targetY - ny);
-        if (distToTarget < MAGNETIC_RADIUS && !c.locked) {
-          const pull = MAGNETIC_STRENGTH * (1 - distToTarget / MAGNETIC_RADIUS);
-          nx += (c.targetX - nx) * pull;
-          ny += (c.targetY - ny) * pull;
-        }
+        // No magnetic pull while dragging – piece follows pointer exactly for easy control
         c.x = nx;
         c.y = ny;
         renderCard(c);
@@ -2032,7 +2038,7 @@ function initApproachPage() {
 }
 
 /**
- * Final CTA "I'm here when you're ready to begin": scroll-driven green fill,
+ * Final CTA "I'm here when you're ready": scroll-driven green fill,
  * serene gradual transition instead of binary toggle.
  */
 function initFinalCtaScroll() {

@@ -1,7 +1,7 @@
 :root{
-  /* Classic elite / vintage-tech editorial system */
-  --paper:#fbfaf7;
-  --paper-2:#f6f2ea;
+  /* Classic elite / vintage-tech editorial system — green-leaning */
+  --paper:#EEF2EB;
+  --paper-2:#E6ECE4;
   --ink:#524F4A;
   --muted:#5a5a5a;
   --line:rgba(35,35,35,.14);
@@ -27,9 +27,9 @@
   --bronze-700:#8B7460;
   --bronze-100:#E5DDD5;
 
-  --color-bg:#677d60;           /* darker sage to match footer fill */
-  --color-bg-cream:#677d60;
-  --color-bg-alt:#E0E6DE;       /* deeper sage */
+  --color-bg:#F3F1EA;           /* cream base */
+  --color-bg-cream:#EEF2EB;     /* cream with green undertone */
+  --color-bg-alt:#E3E9E1;       /* gentle sage-cream contrast */
   --color-surface:#ffffff;
   --color-surface-legal:#ffffff;
 
@@ -39,12 +39,12 @@
   --color-text-light:#8A8680;   /* lighter charcoal */
   --color-border:#E8E5DF;       /* warm, subtle border */
 
-  /* Section tints - sage family */
-  --color-bg-blue-soft:#E8EDE4; /* sage alternate */
-  --color-bg-sage:#E4E9E0;      /* sage tint */
-  --color-primary-strong:#F6F4F0; /* decision section background */
+  /* Section tints - green-leaning sage */
+  --color-bg-blue-soft:#E2E9DC; /* sage alternate */
+  --color-bg-sage:#DCE4D8;      /* sage tint */
+  --color-primary-strong:#E8EFE4; /* decision section background */
   --color-warm-peach:#ffeaa7;   /* warm glow accent (kept for compatibility) */
-  --color-warm-sage:#e8efe6;    /* soft sage (kept for compatibility) */
+  --color-warm-sage:#E2E9DC;    /* soft sage (kept for compatibility) */
 
   /* Serif headers + wide-kerning sans body (vintage-informed) */
   --font-heading:"Cormorant Garamond","Playfair Display",Georgia,serif;
@@ -205,6 +205,14 @@ body{
 .ac-panel p{margin:0 0 10px}
 .ac-panel p:last-child{margin-bottom:0}
 
+/* Subhead above open-up list */
+.openup-subhead{
+  margin:0 0 12px;
+  font-size:clamp(1.1rem, 2vw, 1.35rem);
+  line-height:1.4;
+  color:var(--color-text);
+  font-weight:400;
+}
 /* Numbered editorial list (open up) */
 .openup-list{
   counter-reset:item;
@@ -612,6 +620,25 @@ body::after{
   padding:0;
 }
 
+/* Puzzle intro line (Past, present, future...) */
+.resonance-puzzle-intro{
+  margin:0 0 12px;
+  font-size:1rem;
+  line-height:1.5;
+  color:var(--color-text-muted);
+}
+/* Bullet list: This work might resonate if... */
+.resonance-bullets{
+  list-style:disc;
+  padding-left:1.25rem;
+  margin:0 0 1.5rem;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  line-height:1.6;
+  color:var(--color-text);
+}
+.resonance-bullets li{ margin:0; }
 /* Eyebrow: small label above title for lockup hierarchy */
 .resonance-eyebrow{
   font-size:.75rem;
@@ -2791,6 +2818,24 @@ a.btn[data-consultation-link]:focus-visible{
 .approach-page .page-toc{
   top:100px;
 }
+
+/* Approach page: all main content text white */
+.approach-page #main,
+.approach-page #main * {
+  color: #fff;
+}
+.approach-page #main a:hover {
+  color: rgba(255,255,255,0.88);
+}
+.approach-page #main .page-toc__nav a.is-active {
+  color: #fff;
+  font-weight: 500;
+}
+.approach-page #main .approach-fit__intro,
+.approach-page #main .approach-fit .approach-fit__intro {
+  color: #fff;
+}
+
 .page-toc__details{
   border:1px solid rgba(0,0,0,.06);
   background:var(--color-surface);
@@ -4707,7 +4752,7 @@ main ul li::before{
 }
 
 .faq-page{
-  background:var(--color-bg-cream);
+  background:#E8F0EC;           /* lighter green for Common Questions page */
   position:relative;
 }
 /* Tree/foliage decorative background on FAQ page */
@@ -4814,7 +4859,7 @@ main ul li::before{
   font-size:var(--text-sm);
 }
 
-/* Common Questions page only: reduced padding */
+/* Common Questions page only: cream blocks for readability on green */
 .faq-page .section.faq{
   padding-top:clamp(40px, 6vw, 56px);
   padding-bottom:clamp(40px, 6vw, 56px);
@@ -4822,11 +4867,26 @@ main ul li::before{
 .faq-page .faq__container{
   gap:12px;
 }
+.faq-page .faq-accordion--vintage{
+  gap:12px;
+  border-top:none;
+}
+.faq-page .faq-accordion--vintage details{
+  background:#F7F4EF;
+  border:1px solid rgba(110,102,95,.08);
+  border-radius:10px;
+  padding:0 20px;
+  box-shadow:0 1px 3px rgba(0,0,0,.04);
+}
 .faq-page .faq-accordion--vintage summary{
-  padding:14px 0;
+  padding:18px 0 14px;
 }
 .faq-page .faq-accordion--vintage .answer{
-  padding:0 0 14px;
+  padding:0 0 18px;
+  color:var(--color-text);
+}
+.faq-page .faq-accordion--vintage .answer p{
+  color:var(--color-text);
 }
 .faq-page .faq-cta-sage{
   margin-top:24px;

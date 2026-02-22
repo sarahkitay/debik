@@ -44,10 +44,10 @@ body::before {
 
 :root {
   /* Primary */
-  --ds-paper: #EBEFE6;
+  --ds-paper: #E2E9DC;
   --ds-charcoal: #524F4A;
   --ds-library: #7A8B7F;
-  --ds-ivory: #F2F6EF;
+  --ds-ivory: #EEF2EB;
   /* Accents */
   --ds-terracotta: #D4A896;
   --ds-oxblood: #A65E4D;
@@ -74,7 +74,7 @@ body::before {
   --section-padding: clamp(112px, 11vw, 160px);
   --card-spacing: clamp(24px, 3vw, 32px);
   --text-max: 64ch;
-  /* Depth: subtle section backgrounds (slightly darker sage) */
+  /* Depth: subtle section backgrounds (cream with sage undertones) */
   --ds-section-a: #EEF1E9;
   --ds-section-b: #E8ECE4;
   --ds-section-c: #E3E7DF;
@@ -83,7 +83,7 @@ body::before {
   --section-gap: 0;
   /* Display font — variable, book-printed quality (optional) */
   --font-display: "Fraunces", var(--font-heading, "Cormorant Garamond"), Georgia, serif;
-  /* Texture: paper over sage base */
+  /* Texture: paper over soft sage base */
   --texture-base: #E8ECE4;
   --texture-opacity: 0.1;
 }
@@ -667,7 +667,7 @@ body::before {
 }
 
 /* ========== III. HERO (left lotus / right copy, gallery + book column) ========== */
-/* Extended band: one gradient + texture from hero through How I Work (no abrupt color steps) */
+/* Extended band: sage tint into cream; no abrupt color steps */
 .hero-band {
   background: linear-gradient(
     180deg,
@@ -1363,7 +1363,7 @@ body::before {
   50% { opacity: 0.8; transform: translateY(8px); }
 }
 
-/* Main content: one base color so any sliver between sections is cohesive */
+/* Main content: cream base with green undertones */
 #main {
   background: #FAFAF8;
 }
@@ -1371,10 +1371,12 @@ body::before {
 /* ========== HIERARCHY: 3 featured (Hero, Meet Debi, Final CTA), rest quiet ========== */
 /* Quiet sections: calmer, lighter — no featured treatment */
 .resonance-section-sanctuary,
-.how-i-work-sanctuary,
 .pull-quote-section,
 .pause-band,
 .common-questions-section {
+  background: #FAFAF8;
+}
+.how-i-work-sanctuary {
   background: #FAFAF8;
 }
 
@@ -1416,6 +1418,7 @@ body::before {
   display: block;
   margin-top: 28px;
   margin-bottom: 20px;
+  color: #fff;
 }
 .resonance-next-step {
   margin-top: 2rem;
@@ -1490,7 +1493,11 @@ body::before {
   inset: 0;
   width: 100%;
   height: 100%;
-  color: #6B7A70;
+  color: #A8B8A0;
+  transition: filter 0.35s ease;
+}
+.resonance-grid--puzzle .resonance-card--puzzle-piece:hover .resonance-piece-svg {
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12));
 }
 .resonance-grid--puzzle .resonance-card--puzzle-piece .resonance-piece-svg svg {
   width: 100%;
@@ -1512,26 +1519,40 @@ body::before {
 .resonance-grid--puzzle .resonance-card--puzzle-piece.is-dragging {
   cursor: grabbing;
   z-index: 3;
-  box-shadow:
-    0 18px 36px rgba(122, 155, 142, 0.2),
-    0 8px 18px rgba(0, 0, 0, 0.12);
+  box-shadow: none;
+}
+.resonance-grid--puzzle .resonance-card--puzzle-piece.is-dragging .resonance-piece-svg {
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.25)) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.15));
 }
 
 .resonance-grid--puzzle .resonance-card--puzzle-piece.is-snapped {
   z-index: 2;
-  box-shadow:
-    0 10px 22px rgba(122, 155, 142, 0.16),
-    0 4px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: none;
 }
 
 /* Position from JS via custom properties — same logic for all three pieces */
+/* Smooth transition when not dragging (magnetic pull on release); no transition while dragging */
 .resonance-grid--puzzle .resonance-card--puzzle-piece,
 .resonance-grid--puzzle .resonance-card--puzzle-piece.visible {
   transform: translate(var(--puzzle-x, 0px), var(--puzzle-y, 0px));
+  transition: transform 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.resonance-grid--puzzle .resonance-card--puzzle-piece.is-dragging {
+  transition: none;
 }
 .resonance-grid--puzzle .resonance-card--puzzle-piece.resonance-piece--2,
 .resonance-grid--puzzle .resonance-card--puzzle-piece.resonance-piece--2.visible {
   transform: translate(var(--puzzle-x, 0px), var(--puzzle-y, 0px)) rotate(2deg);
+}
+.resonance-grid--puzzle .resonance-card--puzzle-piece.resonance-piece--2.is-dragging {
+  transition: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .resonance-grid--puzzle .resonance-card--puzzle-piece,
+  .resonance-grid--puzzle .resonance-card--puzzle-piece.visible,
+  .resonance-grid--puzzle .resonance-card--puzzle-piece.resonance-piece--2.visible {
+    transition: none;
+  }
 }
 
 .resonance-puzzle-complete {
@@ -1929,6 +1950,11 @@ body::before {
   box-shadow:
     0 20px 40px rgba(122, 155, 142, 0.15),
     0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Puzzle pieces: shadow on SVG shape only, not block */
+.resonance-grid--puzzle .resonance-card--puzzle-piece:hover {
+  box-shadow: none;
 }
 
 .resonance-card--1:hover {
@@ -2645,7 +2671,7 @@ body.final-cta-inview .approach-flow-section.final-cta .btn-primary:hover {
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* ========== PULL QUOTE (embedded Depth-style: large, soft, fills green on hover) ========== */
+/* ========== PULL QUOTE (embedded Depth-style: soft cream base) ========== */
 .pull-quote-section {
   padding: 140px 48px;
   background: #FAFAF8;
