@@ -1505,10 +1505,10 @@ function initFloatingCards() {
       if (!completion) {
         completion = document.createElement('div');
         completion.className = 'resonance-puzzle-complete puzzle-complete-circle';
-        completion.innerHTML = '<span class="puzzle-complete-text">Safe</span>';
+        completion.innerHTML = '<span class="puzzle-complete-text">Story</span>';
         grid.appendChild(completion);
       } else {
-        completion.innerHTML = '<span class="puzzle-complete-text">Safe</span>';
+        completion.innerHTML = '<span class="puzzle-complete-text">Story</span>';
         completion.classList.add('puzzle-complete-circle');
       }
 

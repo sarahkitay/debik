@@ -736,11 +736,12 @@ body::before {
   inset: 0;
   z-index: 1;
   pointer-events: none;
+  /* Green tone (not grey), slightly deeper, low opacity */
   background: linear-gradient(
     180deg,
-    rgba(70, 85, 78, 0.48) 0%,
-    rgba(65, 80, 72, 0.55) 50%,
-    rgba(60, 75, 68, 0.6) 100%
+    rgba(38, 58, 46, 0.42) 0%,
+    rgba(34, 54, 42, 0.48) 50%,
+    rgba(30, 50, 38, 0.52) 100%
   );
 }
 
@@ -792,34 +793,54 @@ body::before {
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* ========== HERO OFFER SECTION: Red Sea split reveal — cream base, green panels part on scroll ========== */
-.hero-offer-section {
+/* ========== HERO OFFER SECTION: Red Sea split reveal — cream base, darker green panels part on scroll ========== */
+.hero-offer-section,
+.hero-copy-section[data-red-sea],
+.section.pause-band.results-proof[data-red-sea] {
   position: relative;
-  background: var(--texture-base, #F5F1EB);
-  padding: 48px 32px 64px;
   overflow: hidden;
 }
-.hero-offer-section .red-sea-panels {
+.hero-offer-section,
+.hero-copy-section[data-red-sea] {
+  background: var(--texture-base, #F5F1EB);
+  padding: 48px 32px 64px;
+}
+.section.pause-band.results-proof[data-red-sea] {
+  background: var(--texture-base, #F5F1EB);
+}
+.section.pause-band.results-proof[data-red-sea] .wrap {
+  position: relative;
+  z-index: 2;
+}
+.hero-offer-section .red-sea-panels,
+.hero-copy-section[data-red-sea] .red-sea-panels,
+.section.pause-band.results-proof[data-red-sea] .red-sea-panels {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
 }
-.hero-offer-section .red-sea-panel {
+.hero-offer-section .red-sea-panel,
+.hero-copy-section[data-red-sea] .red-sea-panel,
+.section.pause-band.results-proof[data-red-sea] .red-sea-panel {
   position: absolute;
   top: 0;
   bottom: 0;
   width: 51%;
-  background: linear-gradient(180deg, #6a7c72 0%, #5c6b62 50%, #54635a 100%);
+  background: linear-gradient(180deg, #4d5f54 0%, #44554b 50%, #3d4d43 100%);
   /* No transition — scroll-driven, updates every frame */
   will-change: transform;
 }
-.hero-offer-section .red-sea-panel--left {
+.hero-offer-section .red-sea-panel--left,
+.hero-copy-section[data-red-sea] .red-sea-panel--left,
+.section.pause-band.results-proof[data-red-sea] .red-sea-panel--left {
   left: 0;
   transform-origin: left center;
   transform: translateX(calc(-100% * var(--red-sea-progress, 0)));
 }
-.hero-offer-section .red-sea-panel--right {
+.hero-offer-section .red-sea-panel--right,
+.hero-copy-section[data-red-sea] .red-sea-panel--right,
+.section.pause-band.results-proof[data-red-sea] .red-sea-panel--right {
   right: 0;
   transform-origin: right center;
   transform: translateX(calc(100% * var(--red-sea-progress, 0)));
@@ -847,6 +868,21 @@ body::before {
   transform: translateY(0);
 }
 
+/* Hero copy section has no Red Sea — show block by default */
+/* Section below hero: deeper green (not grey), low opacity over cream */
+.hero-copy-section.textured-section {
+  background: linear-gradient(
+    180deg,
+    rgba(28, 52, 38, 0.26) 0%,
+    rgba(24, 46, 34, 0.32) 100%
+  ), #F5F1EB;
+}
+
+.hero-copy-section .hero-offer-block {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .hero-offer-block.is-active {
   border-color: rgba(107, 125, 112, 0.6);
   box-shadow: 0 0 0 1px rgba(107, 125, 112, 0.25), 0 8px 32px rgba(0, 0, 0, 0.08);
@@ -867,6 +903,17 @@ body::before {
   text-transform: uppercase;
   color: #7a9b8e;
   margin-bottom: 16px;
+}
+
+/* Section header format: same as Meet Debi etc — charcoal, serif */
+.hero-offer-block__title {
+  font-family: var(--font-heading, "Cormorant Garamond"), "Freight Display", Georgia, serif;
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  color: var(--ds-charcoal);
+  margin: 0 0 1.25rem;
 }
 
 .hero-offer-block__text {
@@ -894,7 +941,8 @@ body::before {
     height: 85vh;
     padding: clamp(50px, 8vh, 80px) 20px;
   }
-  .hero-offer-section {
+  .hero-offer-section,
+  .hero-copy-section[data-red-sea] {
     padding: 32px 16px 48px;
   }
   .hero-offer-block {
@@ -1381,7 +1429,12 @@ body::before {
 }
 
 .meet-debi-sanctuary {
-  background: var(--ds-section-b);
+  /* Deeper green (not grey), low opacity behind Debi image — over cream */
+  background: linear-gradient(
+    180deg,
+    rgba(28, 52, 38, 0.28) 0%,
+    rgba(24, 46, 34, 0.34) 100%
+  ), #F5F1EB;
 }
 
 /* No margin between sections — spacing from padding only so section bg fills (no white strips) */
@@ -1414,6 +1467,13 @@ body::before {
   margin: 0 auto;
   padding: 0 24px;
 }
+.resonance-puzzle-section__title {
+  text-align: center;
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  color: var(--ds-charcoal);
+}
 .resonance-section .resonance-eyebrow {
   display: block;
   margin-top: 28px;
@@ -1424,8 +1484,11 @@ body::before {
 /* Reveal block: “This work might resonate if…” + bullets — only when puzzle is complete, above the puzzle */
 .resonance-reveal-on-complete {
   display: none;
-  margin-bottom: 32px;
-  padding: 0 24px;
+  margin-bottom: 28px;
+  padding: 0 16px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
   animation: resonance-reveal-in 0.5s ease-out forwards;
 }
 .resonance-puzzle-wrap.puzzle-complete .resonance-reveal-on-complete {
@@ -1437,6 +1500,34 @@ body::before {
 .resonance-eyebrow--grey {
   color: var(--color-text-muted, #6A6661) !important;
   opacity: 0.9;
+  margin-bottom: 12px;
+}
+.resonance-reveal-on-complete .resonance-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.resonance-reveal-on-complete .resonance-bullets li {
+  position: relative;
+  padding-left: 1.15rem;
+  font-size: clamp(0.8125rem, 1.8vw, 0.9375rem);
+  line-height: 1.5;
+  color: var(--ds-charcoal);
+  margin: 0;
+}
+.resonance-reveal-on-complete .resonance-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ds-library);
+  opacity: 0.7;
 }
 @keyframes resonance-reveal-in {
   from {
@@ -1448,8 +1539,102 @@ body::before {
     transform: translateY(0);
   }
 }
+.resonance-puzzle-wrap.puzzle-complete .resonance-blocks-below {
+  display: none;
+}
+@media (min-width: 640px) {
+  .resonance-reveal-on-complete {
+    padding: 0 28px;
+    margin-bottom: 32px;
+  }
+  .resonance-reveal-on-complete .resonance-bullets li {
+    font-size: 0.9375rem;
+  }
+  .resonance-reveal-on-complete .resonance-bullets {
+    gap: 8px;
+  }
+}
+@media (max-width: 480px) {
+  .resonance-reveal-on-complete {
+    padding: 0 12px;
+    margin-bottom: 24px;
+  }
+  .resonance-reveal-on-complete .resonance-bullets li {
+    font-size: 0.8125rem;
+    padding-left: 1rem;
+  }
+  .resonance-reveal-on-complete .resonance-bullets li::before {
+    width: 3px;
+    height: 3px;
+    top: 0.55em;
+  }
+}
 
 .resonance-next-step {
+  margin-top: 2rem;
+}
+
+/* Static "This work might resonate if..." block (no puzzle) — block centered, text left-aligned */
+.resonance-section:not(.resonance-puzzle-section) .resonance-section__container {
+  text-align: left;
+}
+.resonance-static-block {
+  max-width: 40rem;
+  margin: 0 auto 2.5rem;
+  padding-left: 0;
+  text-align: left;
+}
+.resonance-static-block .resonance-eyebrow {
+  display: block;
+  color: var(--color-text-muted, #6A6661);
+  opacity: 0.92;
+  margin-bottom: 1rem;
+  font-size: clamp(0.8rem, 1.6vw, 0.95rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.resonance-static-block .resonance-bullets,
+.resonance-static-block ul.resonance-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+/* Match How I Work intro: same font and style as "People make sense in context..." */
+.resonance-static-block .resonance-bullets li,
+.resonance-static-block ul.resonance-bullets li {
+  position: relative;
+  padding-left: 1.35rem;
+  font-size: clamp(15px, 1.05vw, 17px);
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(44, 40, 35, 0.85);
+  margin: 0;
+}
+.resonance-static-block .resonance-bullets li::before,
+.resonance-static-block ul.resonance-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--ds-library);
+  opacity: 0.75;
+}
+.resonance-static-block .resonance-next-step,
+.resonance-static-block .resonance-next-step--below {
+  margin-top: 2.25rem;
+  font-size: clamp(15px, 1.05vw, 17px);
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(44, 40, 35, 0.85);
+}
+.resonance-static-block .resonance-next-step--below {
   margin-top: 2rem;
 }
 
@@ -2197,21 +2382,29 @@ body::before {
   border-left: none;
 }
 
-/* ========== TRUST BADGES: green flip cards with floral SVG (text front, badge SVG back on hover/tap) ========== */
+/* ========== TRUST BADGES: small badge row (not dominant) — flip on hover/tap ========== */
 .badges--flip {
   display: flex;
   flex-wrap: wrap;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
-  gap: 24px;
-  padding: clamp(48px, 6vw, 64px) 32px;
-  background: #FAFAF8;
+  gap: 24px 64px;
+  padding: 28px 32px 32px;
+  background: transparent;
+  border-top: 1px solid rgba(122, 139, 127, 0.12);
+  border-bottom: 1px solid rgba(122, 139, 127, 0.12);
+}
+
+@media (min-width: 769px) {
+  .badges--flip {
+    gap: 32px 96px;
+  }
 }
 
 .badge-flip {
-  width: clamp(200px, 26vw, 280px);
-  min-height: 200px;
-  perspective: 800px;
+  width: clamp(118px, 17vw, 168px);
+  min-height: 102px;
+  perspective: 600px;
   cursor: pointer;
   border: none;
   background: transparent;
@@ -2222,15 +2415,15 @@ body::before {
 
 .badge-flip:focus-visible {
   outline: 2px solid rgba(122, 155, 142, 0.8);
-  outline-offset: 4px;
+  outline-offset: 3px;
 }
 
 .badge-flip__inner {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 200px;
-  transition: transform 0.6s ease;
+  min-height: 102px;
+  transition: transform 0.5s ease;
   transform-style: preserve-3d;
 }
 
@@ -2250,59 +2443,72 @@ body::before {
   inset: 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border-radius: 3px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 28px 20px;
+  padding: 12px 14px;
   box-sizing: border-box;
 }
 
 .badge-flip__front {
-  background: rgba(107, 122, 112, 0.72);
+  background: rgba(107, 122, 112, 0.68);
   color: #fff;
-  box-shadow: 0 8px 24px rgba(70, 85, 75, 0.25);
+  box-shadow: 0 2px 12px rgba(70, 85, 75, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.08);
   background-image:
     url("images/floral-lines.svg"),
-    linear-gradient(180deg, rgba(107, 122, 112, 0.78) 0%, rgba(90, 105, 95, 0.72) 100%);
-  background-size: 52% auto, 100% 100%;
+    linear-gradient(180deg, rgba(107, 122, 112, 0.75) 0%, rgba(90, 105, 95, 0.68) 100%);
+  background-size: 48% auto, 100% 100%;
   background-position: center, 0 0;
   background-repeat: no-repeat, repeat;
 }
 
 .badge-flip__back {
-  background: linear-gradient(180deg, rgba(100, 116, 105, 0.82) 0%, rgba(90, 105, 95, 0.75) 100%);
+  background: linear-gradient(180deg, rgba(100, 116, 105, 0.8) 0%, rgba(90, 105, 95, 0.72) 100%);
   transform: rotateY(180deg);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .badge-flip__back img {
-  width: 56px;
-  height: 56px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
   filter: brightness(0) invert(1);
   opacity: 0.92;
 }
 
 .badge-flip__text {
-  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+  font-size: 0.78rem;
   font-weight: 500;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  line-height: 1.35;
+  line-height: 1.25;
   text-align: center;
 }
 
 @media (max-width: 768px) {
   .badges--flip {
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
+    gap: 18px 40px;
+    padding: 22px 20px 26px;
   }
   .badge-flip {
-    width: 100%;
-    max-width: 300px;
+    width: clamp(100px, 30vw, 132px);
+    min-height: 86px;
+  }
+  .badge-flip__inner {
+    min-height: 86px;
+  }
+  .badge-flip__front,
+  .badge-flip__back {
+    padding: 10px 12px;
+  }
+  .badge-flip__text {
+    font-size: 0.7rem;
+  }
+  .badge-flip__back img {
+    width: 32px;
+    height: 32px;
   }
 }
 
@@ -2405,14 +2611,81 @@ body::before {
 .how-i-work-sanctuary {
   padding: var(--section-padding) 48px;
 }
-/* Inner text box: cream (not green) for contrast on green section background */
-.how-i-work-sanctuary .plate {
+/* Inner text box: cream (not green) for contrast on green section background — sitewide */
+.how-i-work-sanctuary .plate,
+.textured-section .plate,
+.section .plate {
   background: radial-gradient(140% 120% at 10% 0%, #FAF8F4 0%, #F5F2EB 60%, #FAF8F4 100%);
   border-color: rgba(80, 70, 65, 0.12);
   box-shadow: 0 2px 12px rgba(44, 40, 35, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
 }
-.how-i-work-sanctuary .plate::before {
+.how-i-work-sanctuary .plate::before,
+.textured-section .plate::before,
+.section .plate::before {
   border-color: rgba(80, 70, 65, 0.08);
+}
+/* Accordion panel inner: cream so green is section background only */
+.accordion-group-sanctuary .ac-panel,
+.accordion .ac-panel {
+  background: transparent;
+}
+.accordion-item-ds[data-state="open"] .ac-panel,
+.accordion-item-ds details[open] .ac-panel {
+  background: rgba(250, 248, 244, 0.6);
+}
+
+/* Common Questions: no green inside text block — plate and FAQ area cream/neutral only */
+.common-questions-section .plate {
+  background: radial-gradient(140% 120% at 10% 0%, #FAF8F4 0%, #F5F2EB 60%, #FAF8F4 100%) !important;
+  border-color: rgba(80, 70, 65, 0.12);
+}
+/* Common Questions: same font/style as How I Work intro paragraph */
+.common-questions-section .common-questions-title {
+  font-size: clamp(15px, 1.05vw, 17px);
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(44, 40, 35, 0.85);
+  margin: 0 0 1.25rem;
+}
+.common-questions-section .faq-accordion summary {
+  font-size: clamp(15px, 1.05vw, 17px);
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(44, 40, 35, 0.85);
+}
+.common-questions-section .faq-accordion .answer,
+.common-questions-section .faq-accordion .answer p {
+  font-size: clamp(15px, 1.05vw, 17px);
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(44, 40, 35, 0.85);
+}
+.common-questions-section .faq-accordion details {
+  background: transparent;
+  border-color: rgba(80, 70, 65, 0.12);
+}
+.common-questions-section .faq-accordion--vintage details {
+  border-bottom-color: rgba(80, 70, 65, 0.12);
+}
+.common-questions-section .faq-accordion details[open] summary::after {
+  color: var(--ds-charcoal, #524f4a);
+  border-color: transparent;
+}
+.common-questions-section .faq-accordion .answer {
+  background: transparent;
+  color: rgba(44, 40, 35, 0.85);
+}
+.common-questions-section .common-questions-footer {
+  font-size: clamp(15px, 1.05vw, 17px);
+  font-weight: 300;
+  line-height: 1.55;
+}
+.common-questions-section .common-questions-footer a {
+  color: var(--ds-charcoal, #524f4a);
+  font-weight: 500;
+}
+.common-questions-section .common-questions-footer a:hover {
+  color: var(--color-text-muted, #6a6661);
 }
 .how-i-work-sanctuary[data-observe] {
   opacity: 0;
@@ -2644,29 +2917,29 @@ body.final-cta-inview .section.final-cta .final-cta-brass-path {
   transition: stroke 0.5s ease;
 }
 
-/* Approach page Next Steps: text and button go light when green fills */
-body.final-cta-inview .approach-flow-section.final-cta h2,
-body.final-cta-inview .approach-flow-section.final-cta .approach-flow-section__inner h2 {
-  color: #fff;
+/* Approach page Next Steps: text and button stay charcoal when green fills */
+body.final-cta-inview .approach-page .approach-flow-section.final-cta h2,
+body.final-cta-inview .approach-page .approach-flow-section.final-cta .approach-flow-section__inner h2 {
+  color: var(--ds-charcoal);
   transition: color 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-body.final-cta-inview .approach-flow-section.final-cta p,
-body.final-cta-inview .approach-flow-section.final-cta .approach-flow-section__inner p {
-  color: rgba(255, 255, 255, 0.9);
+body.final-cta-inview .approach-page .approach-flow-section.final-cta p,
+body.final-cta-inview .approach-page .approach-flow-section.final-cta .approach-flow-section__inner p {
+  color: rgba(44, 40, 35, 0.9);
   transition: color 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-body.final-cta-inview .approach-flow-section.final-cta .btn,
-body.final-cta-inview .approach-flow-section.final-cta .btn-primary {
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.75);
+body.final-cta-inview .approach-page .approach-flow-section.final-cta .btn,
+body.final-cta-inview .approach-page .approach-flow-section.final-cta .btn-primary {
+  color: var(--ds-charcoal);
+  border: 1px solid rgba(44, 40, 35, 0.4);
   background: transparent;
   transition: color 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 0.4s ease, border-color 0.4s ease;
 }
-body.final-cta-inview .approach-flow-section.final-cta .btn:hover,
-body.final-cta-inview .approach-flow-section.final-cta .btn-primary:hover {
+body.final-cta-inview .approach-page .approach-flow-section.final-cta .btn:hover,
+body.final-cta-inview .approach-page .approach-flow-section.final-cta .btn-primary:hover {
   background: rgba(196, 216, 198, 0.95);
   border-color: rgba(196, 216, 198, 0.95);
-  color: #1e2a1f;
+  color: var(--ds-charcoal);
 }
 
 /* Default: dark text and button (tan page) */

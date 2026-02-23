@@ -2830,21 +2830,21 @@ a.btn[data-consultation-link]:focus-visible{
   top:100px;
 }
 
-/* Approach page: all main content text white */
+/* Approach page: all main content text charcoal */
 .approach-page #main,
 .approach-page #main * {
-  color: #fff;
+  color: var(--ds-charcoal, #524F4A);
 }
 .approach-page #main a:hover {
-  color: rgba(255,255,255,0.88);
+  color: rgba(44, 40, 35, 0.78);
 }
 .approach-page #main .page-toc__nav a.is-active {
-  color: #fff;
+  color: var(--ds-charcoal, #524F4A);
   font-weight: 500;
 }
 .approach-page #main .approach-fit__intro,
 .approach-page #main .approach-fit .approach-fit__intro {
-  color: #fff;
+  color: var(--ds-charcoal, #524F4A);
 }
 
 .page-toc__details{
@@ -3676,6 +3676,17 @@ body.page-long .cta-center{
   position:relative;
   background:var(--hero-sage-gradient);
 }
+/* Approach page hero: white text only for "My approach", "How I Work", intro paragraph; rest of page stays charcoal */
+.approach-page #main .approach-hero-sage .approach-hero-flow__eyebrow{
+  color:rgba(255, 255, 255, 0.9);
+}
+.approach-page #main .approach-hero-sage h1{
+  color:#fff;
+  opacity:1;
+}
+.approach-page #main .approach-hero-sage .approach-hero-flow__text{
+  color:rgba(255, 255, 255, 0.88);
+}
 .approach-hero-sage .approach-hero-flow__eyebrow{
   color:rgba(255,255,255,0.8);
 }
@@ -3717,10 +3728,10 @@ body.page-long .cta-center{
   padding:clamp(48px, 8vw, 96px) 0;
 }
 .menopause-floating-card{
-  background:rgba(250,248,246,.97);
-  border:1px solid rgba(0,0,0,.06);
-  border-radius:8px;
-  box-shadow:0 8px 32px rgba(0,0,0,.06);
+  background:transparent;
+  border:1px solid rgba(0,0,0,.12);
+  border-radius:0;
+  box-shadow:none;
   padding:2.5rem 2.75rem;
   max-width:680px;
   margin:0 auto;
@@ -3747,7 +3758,7 @@ body.page-long .cta-center{
 .menopause-surface-grid__text p{margin:0 0 16px; line-height:1.9; max-width:100%}
 .menopause-surface-grid__text p:last-child{margin-bottom:0}
 .menopause-surface-grid__image{
-  border-radius:8px;
+  border-radius:0;
   overflow:hidden;
   box-shadow:none;
 }
@@ -3794,19 +3805,18 @@ body.page-long .cta-center{
   margin:1.5rem 0 2rem;
 }
 .menopause-tile{
-  background:var(--color-bg-sage);
-  border:1px solid rgba(127,166,148,.2);
-  border-radius:10px;
+  background:transparent;
+  border:1px solid rgba(0,0,0,.12);
+  border-radius:0;
   padding:1.25rem 1.5rem;
   font-size:0.95rem;
   line-height:1.5;
   color:var(--color-text);
-  box-shadow:0 2px 12px rgba(0,0,0,.03);
-  transition:box-shadow .25s ease, border-color .25s ease;
+  box-shadow:none;
+  transition:border-color .25s ease;
 }
 .menopause-tile:hover{
-  box-shadow:0 4px 20px rgba(0,0,0,.06);
-  border-color:rgba(127,166,148,.35);
+  border-color:rgba(0,0,0,.2);
 }
 @media (max-width: 600px){
   .menopause-tiles{grid-template-columns:1fr}
@@ -4899,9 +4909,28 @@ main ul li::before{
 .faq-page .faq-accordion--vintage .answer p{
   color:var(--color-text);
 }
+/* FAQ landing page only: Still have questions block — no radius, opaque header match, white text */
 .faq-page .faq-cta-sage{
   margin-top:24px;
   padding:20px 24px;
+  border-radius:0;
+  background:var(--hero-sage-gradient);
+  border:1px solid rgba(255,255,255,0.12);
+}
+.faq-page .faq-cta-sage__text{
+  color:#fff;
+}
+.faq-page .faq-cta-sage .btn,
+.faq-page .faq-cta-sage .btn-primary{
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.6);
+  background:transparent;
+}
+.faq-page .faq-cta-sage .btn:hover,
+.faq-page .faq-cta-sage .btn-primary:hover{
+  background:rgba(255,255,255,0.15);
+  border-color:rgba(255,255,255,0.8);
+  color:#fff;
 }
 
 .contact__grid{
