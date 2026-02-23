@@ -1420,6 +1420,35 @@ body::before {
   margin-bottom: 20px;
   color: #fff;
 }
+
+/* Reveal block: “This work might resonate if…” + bullets — only when puzzle is complete, above the puzzle */
+.resonance-reveal-on-complete {
+  display: none;
+  margin-bottom: 32px;
+  padding: 0 24px;
+  animation: resonance-reveal-in 0.5s ease-out forwards;
+}
+.resonance-puzzle-wrap.puzzle-complete .resonance-reveal-on-complete {
+  display: block;
+}
+.resonance-reveal-on-complete[aria-hidden="true"] {
+  display: none !important;
+}
+.resonance-eyebrow--grey {
+  color: var(--color-text-muted, #6A6661) !important;
+  opacity: 0.9;
+}
+@keyframes resonance-reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .resonance-next-step {
   margin-top: 2rem;
 }

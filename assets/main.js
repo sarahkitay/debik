@@ -1633,9 +1633,15 @@ function initFloatingCards() {
         if (cards.every(c => c.locked)) {
           setTimeout(() => {
             grid.classList.add('puzzle-complete');
+            const wrap = grid.closest('.resonance-puzzle-wrap');
+            if (wrap) wrap.classList.add('puzzle-complete');
             completion.classList.add('visible', 'puzzle-complete-just-revealed');
             undoBtn.classList.add('visible');
             grid.dispatchEvent(new CustomEvent('puzzle-complete'));
+            const revealBlock = wrap && wrap.querySelector('.resonance-reveal-on-complete');
+            if (revealBlock) {
+              revealBlock.setAttribute('aria-hidden', 'false');
+            }
             setTimeout(() => completion.classList.remove('puzzle-complete-just-revealed'), 1200);
           }, 350);
         }
@@ -1643,6 +1649,10 @@ function initFloatingCards() {
 
       function resetPuzzle() {
         grid.classList.remove('puzzle-complete');
+        const wrap = grid.closest('.resonance-puzzle-wrap');
+        if (wrap) wrap.classList.remove('puzzle-complete');
+        const revealBlock = wrap && wrap.querySelector('.resonance-reveal-on-complete');
+        if (revealBlock) revealBlock.setAttribute('aria-hidden', 'true');
         completion.classList.remove('visible');
         undoBtn.classList.remove('visible');
         const outline = grid.querySelector('.puzzle-target-outline');
