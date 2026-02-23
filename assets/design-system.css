@@ -2295,6 +2295,33 @@ body::before {
   min-height: 0;
 }
 
+/* Desktop: equal-height columns side by side — image and text box same height */
+@media (min-width: 1025px) {
+  .meet-debi-container .portrait-column {
+    display: flex;
+    flex-direction: column;
+  }
+  .meet-debi-container .portrait-column .portrait-frame {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+  }
+  .meet-debi-container .portrait-column .portrait-frame .portrait-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .meet-debi-container .bio-column {
+    display: flex;
+    flex-direction: column;
+  }
+  .meet-debi-container .bio-column .meet-debi-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .portrait-frame {
   position: relative;
   overflow: hidden;
