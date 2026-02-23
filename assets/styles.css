@@ -27,9 +27,9 @@
   --bronze-700:#8B7460;
   --bronze-100:#E5DDD5;
 
-  --color-bg:#F3F1EA;           /* cream base */
-  --color-bg-cream:#EEF2EB;     /* cream with green undertone */
-  --color-bg-alt:#E3E9E1;       /* gentle sage-cream contrast */
+  --color-bg:#E8ECE4;           /* base: more green, darker undertone */
+  --color-bg-cream:#E0E6DE;     /* cream with darker green undertone */
+  --color-bg-alt:#D4DCD4;       /* deeper muted sage */
   --color-surface:#ffffff;
   --color-surface-legal:#ffffff;
 
@@ -39,12 +39,12 @@
   --color-text-light:#8A8680;   /* lighter charcoal */
   --color-border:#E8E5DF;       /* warm, subtle border */
 
-  /* Section tints - green-leaning sage */
-  --color-bg-blue-soft:#E2E9DC; /* sage alternate */
-  --color-bg-sage:#DCE4D8;      /* sage tint */
-  --color-primary-strong:#E8EFE4; /* decision section background */
+  /* Section tints - more green, darker / less bright undertones */
+  --color-bg-blue-soft:#D8E0D8; /* sage alternate */
+  --color-bg-sage:#D2DCD2;      /* sage tint */
+  --color-primary-strong:#DCE4D8; /* decision section background */
   --color-warm-peach:#ffeaa7;   /* warm glow accent (kept for compatibility) */
-  --color-warm-sage:#E2E9DC;    /* soft sage (kept for compatibility) */
+  --color-warm-sage:#D8E0D8;    /* soft sage (kept for compatibility) */
 
   /* Serif headers + wide-kerning sans body (vintage-informed) */
   --font-heading:"Cormorant Garamond","Playfair Display",Georgia,serif;
@@ -91,7 +91,7 @@
   /* Uniform page hero h1 size (all pages) */
   --page-hero-h1-size: clamp(2rem, 4vw, 2.5rem);
   /* Lighter green for page heroes (about, approach, menopause, common questions, contact) — not home */
-  --hero-sage-gradient:linear-gradient(180deg, #6e826f 0%, #647766 50%, #5e7060 100%);
+  --hero-sage-gradient:linear-gradient(180deg, #5e7060 0%, #566658 50%, #4e5e52 100%);
 
   /* Approach page organic SVGs */
   --approach-moss:#4A5844;
@@ -205,13 +205,15 @@ body{
 .ac-panel p{margin:0 0 10px}
 .ac-panel p:last-child{margin-bottom:0}
 
-/* Subhead above open-up list */
+/* Subhead above open-up list — serif, aligned with “What this work tends to open up” */
 .openup-subhead{
   margin:0 0 12px;
-  font-size:clamp(1.1rem, 2vw, 1.35rem);
-  line-height:1.4;
+  font-family:var(--font-heading);
+  font-size:clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight:300;
+  line-height:1.35;
+  letter-spacing:0.01em;
   color:var(--color-text);
-  font-weight:400;
 }
 /* Numbered editorial list (open up) */
 .openup-list{
@@ -1922,9 +1924,9 @@ a.btn[data-consultation-link]:focus-visible{
 
 .meet-debi-grid{
   display:grid;
-  grid-template-columns: .9fr 1.1fr;
+  grid-template-columns: 1fr 1fr;
   gap:3rem;
-  align-items:start;
+  align-items:stretch;
 }
 .meet-debi-image img{
   width:100%;
@@ -1935,6 +1937,12 @@ a.btn[data-consultation-link]:focus-visible{
   transform: translateY(28px);
   transition: opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
   will-change: opacity, transform;
+}
+@media (max-width: 1024px) {
+  .meet-debi-image .portrait-frame img {
+    object-fit: cover;
+    height: 100%;
+  }
 }
 .meet-debi-image[data-observe].visible img{
   opacity: 0.88;
@@ -1954,6 +1962,9 @@ a.btn[data-consultation-link]:focus-visible{
   padding:2rem 2.5rem;
   border-radius:8px;
   box-shadow:0 2px 12px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 .meet-debi-content p{
   color:var(--color-text-muted);
@@ -4370,7 +4381,7 @@ body.page-long .cta-center{
 }
 /* Only used when sage block is present (e.g. not on home); same lighter green as other page heroes */
 .common-questions-section--sage .plate{
-  background:linear-gradient(180deg, #6e826f 0%, #647766 180px, #EBEFE6 180px);
+  background:linear-gradient(180deg, #5e7060 0%, #566658 180px, #E0E6DE 180px);
   padding-top:48px;
 }
 .common-questions-section--sage .section-label,
